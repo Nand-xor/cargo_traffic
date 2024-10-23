@@ -1,0 +1,72 @@
+﻿<Page x:Class="cargo_traffic.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:cargo_traffic"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage" ShowsNavigationUI="False">
+
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Background" Value="#4682B4" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="BorderBrush" Value="#4682B4" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="SectionTitle">
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,21,0,10" />
+            <Setter Property="Foreground" Value="#333333" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#F0F4F7">
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Logo and Title Section -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Margin="0,10"/>
+
+        <Grid HorizontalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Section for Process Fixation Pages -->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,47,0,10">
+                <TextBlock Style="{StaticResource SectionTitle}" Text="Фиксация процессов" VerticalAlignment="Center"/>
+                <Button Content="Оформление заказа" Click="OrderButton_Click"/>
+                <Button Content="Организация перевозки" Click="TransportButton_Click"/>
+                <Button Content="Закрытие заказа" Click="CloseOrderButton_Click"/>
+                <Button Content="Покупка авто" Click="BuyCarButton_Click"/>
+            </StackPanel>
+
+            <!-- Section for Report Pages -->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="1" Margin="0,131,0,10">
+                <TextBlock Style="{StaticResource SectionTitle}" Text="Справочники" HorizontalAlignment="Center"/>
+                <Button Content="Все справочники" Width="200" Click="DictionariesButton_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Footer -->
+        <TextBlock Text="© 2023 Cargo Transportation App" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" Foreground="Gray" Margin="0,424,0,0"/>
+        <Image Source="Resources/logo.png" Margin="10,9,640,300"/>
+    </Grid>
+</Page>

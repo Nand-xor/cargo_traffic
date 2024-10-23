@@ -1,0 +1,67 @@
+﻿<Page x:Class="cargo_traffic.DBRedactPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:cargo_traffic"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DBRedactPage" ShowsNavigationUI="False">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Background" Value="#4682B4" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="BorderBrush" Value="#4682B4" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#F0F4F7">
+        <!-- Логотип в левом верхнем углу -->
+        <Image Source="Resources/logo.png" HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Width="150" Margin="10"/>
+
+        <!-- Датагрид по центру -->
+        <DataGrid x:Name="MainDataGrid" Margin="215,43,10,122"/>
+
+        <!-- ScrollViewer с кнопками переключения справочников -->
+        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Margin="10,128,0,0">
+            <StackPanel>
+                <Button Content="Водители" Click="DriversBtn_Click"/>
+                <Button Content="Доходы" Click="ProfitBtn_Click"/>
+                <Button Content="Тех. обслуживание" Click="TechServiceBtn_Click"/>
+                <Button Content="Заказы" Click="OrdersBtn_Click"/>
+                <Button Content="Заказы-грузы" Click="OrdersCargosBtn_Click"/>
+                <Button Content="Закупка грузовиков" Click="TrucksPurchaseBtn_Click"/>
+                <Button Content="Работа грузовиков" Click="TrucksOccupancyBtn_Click"/>
+                <Button Content="Клиенты" Click="ClientsBtn_Click"/>
+                <Button Content="Маршруты" Click="RoutesBtn_Click"/>
+                <Button Content="Остатки грузовиков" Click="TruckRemnantsBtn_Click"/>
+                <Button Content="Перевозки" Click="ShipmentsBtn_Click"/>
+                <Button Content="Пользователи" Click="UsersBtn_Click"/>
+                <Button Content="Статусы заказов" Click="OrdersStatusBtn_Click"/>
+                <Button Content="Тарифы" Click="TariffsBtn_Click"/>
+                <Button Content="точки погрузки" Click="LoadPointsBtn_Click"/>
+                <Button Content="точки разгрузки" Click="UnloadPointsBtn_Click"/>
+                <Button Content="транспортные средства" Click="VehiclesBtn_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Кнопка "Сохранить изменения" в левом нижнем углу -->
+        <Button Content="Сохранить изменения" Name="SaveBtn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Width="150" Click="SaveChanges"/>
+
+        <!-- Кнопка "Удалить" в центре снизу -->
+        <Button Content="Удалить" Name ="DeleteBtn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="428,0,0,10" Width="150" Click="DeleteChanges"/>
+        <Button Content="Добавить" Name="AddBtn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="215,0,0,10" Width="150" Click="AddBtn_Click"/>
+
+        <!-- Кнопка "Назад" в правом нижнем углу -->
+        <Button Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Width="150" Click="GoBack"/>
+    </Grid>
+</Page>
