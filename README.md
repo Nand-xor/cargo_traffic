@@ -55,8 +55,8 @@ cargo_traffic/
 
 ## Запуск
 
-1. Открыть `cargo_traffic.sln` в Visual Studio 2022
-2. Развернуть базу `cargo_traffic_v4` в SQL Server и поправить `connectionString` в `App.config` под свой сервер
+1. Развернуть базу: открыть `database.sql` в SQL Server Management Studio и выполнить целиком (F5) — создастся база `cargo_traffic_v4` со схемой и демо-данными
+2. Открыть `cargo_traffic.sln` в Visual Studio 2022 и поправить `connectionString` в `App.config` под свой сервер
 3. Собрать и запустить (F5)
 
-Учётная запись администратора создаётся в таблице `пользователи` вручную, дальше сотрудники регистрируются через приложение.
+Учётные записи из демо-данных: `nand` / `nand_password` (администратор), `some fodder` / `123` (сотрудник). Новые сотрудники регистрируются через приложение.
