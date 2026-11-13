@@ -1,0 +1,75 @@
+<Page x:Class="cargo_traffic.RepairPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:cargo_traffic"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RepairPage" ShowsNavigationUI="False">
+
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="Background" Value="#4682B4" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="BorderBrush" Value="#4682B4" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#F0F4F7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="Resources/logo.png" Height="90" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+
+        <!-- форма: авто, дата, что делали, сколько стоило -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Автомобиль: " FontSize="24" FontWeight="SemiBold"/>
+                <ComboBox Name="VehicleComboBox" FontSize="20" Width="400" VerticalAlignment="Center">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding марка}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding модель}"/>
+                                <TextBlock Text=" ("/>
+                                <TextBlock Text="{Binding регистрационный_номер}"/>
+                                <TextBlock Text=")"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Дата обслуживания: " FontSize="24" FontWeight="SemiBold"/>
+                <DatePicker Name="ServiceDatePicker" FontSize="20" Width="250" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Описание работ: " FontSize="24" FontWeight="SemiBold"/>
+                <TextBox TextWrapping="Wrap" Text="" Name="DescriptionTxtBox" FontSize="24" FontWeight="SemiBold" Width="400"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Стоимость: " FontSize="24" FontWeight="SemiBold"/>
+                <TextBox TextWrapping="Wrap" Name="PriceTxtBox" Text="" FontSize="24" FontWeight="SemiBold" Width="267"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Click="BackBtn_Click"/>
+            <Button Content="Зарегистрировать ремонт" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Width="250" Click="RegisterRepairBtn_Click"/>
+        </Grid>
+    </Grid>
+</Page>
